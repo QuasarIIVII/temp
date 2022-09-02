@@ -28,11 +28,6 @@ CMakeFiles/a.dir/a.o: ../a.cpp \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
-  /usr/include/c++/12/cstdint \
-  /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \
-  /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
-  /usr/include/x86_64-linux-gnu/c++/12/bits/cpu_defines.h \
-  /usr/include/c++/12/pstl/pstl_config.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
   /usr/include/stdint.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -42,19 +37,13 @@ CMakeFiles/a.dir/a.o: ../a.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h:
-
-/usr/include/x86_64-linux-gnu/c++/12/bits/cpu_defines.h:
-
-/usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h:
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
-/usr/include/stdint.h:
-
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
+
+/usr/include/stdint.h:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
@@ -67,6 +56,8 @@ CMakeFiles/a.dir/a.o: ../a.cpp \
 /usr/include/stdc-predef.h:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h:
 
 ../a.cpp:
 
@@ -92,6 +83,10 @@ CMakeFiles/a.dir/a.o: ../a.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
+/usr/include/features.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+
 /usr/include/features-time64.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
@@ -103,13 +98,3 @@ CMakeFiles/a.dir/a.o: ../a.cpp \
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
-
-/usr/include/c++/12/pstl/pstl_config.h:
-
-/usr/include/c++/12/cstdint:
-
-/usr/include/features.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
-
-/usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h:

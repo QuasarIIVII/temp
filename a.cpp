@@ -1,8 +1,8 @@
 #include<stdio.h>
-#include<cstdint>
+#include<stdint.h>
 int main(){
-	int32_t a;
-	scanf("%d",&a);
-	for(int32_t i=2;a>1;i++)while(!(a%i)){printf("%d ",i);a/=i;}
+	int32_t a,b,i;
+	scanf("%d%d",&a,&b);
+	for(i=a<b?a:b;i;i--)if(!(a%i || b%i))printf("%d ",i);
 }
 

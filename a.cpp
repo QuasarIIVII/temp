@@ -4,36 +4,15 @@
 #include<memory.h>
 #include<string.h>
 int main(){
-	uint8_t*plain,*enc;
-	uint64_t sz, key, i, j;
-	char path[65536];
-	FILE*fin,*fout;
+	int64_t ä,ã,ó,ò,ô;
+	scanf("%lld",&ä);
+	struct{int64_t à, á;} â[ä+1];
+	for(ã=ä-1;ã+1;ã--)scanf("%lld%lld",&â[ã].à, &â[ã].á);
+	scanf("%lld%lld",&â[ä].à,&â[ä].á);
 	
-	printf("Enter the plain file path");
-	getline(path, 65536);
-	fin=fopen(path, "rb");
-	scanf("%llx",&key);
-	scanf("%lld",&sz);
-	sz+=16;
-	plain=(uint8_t*)malloc(sz);
-	enc=(uint8_t*)malloc(sz);
-	if(plain==NULL)printf("You tried to fuck the memory up");
-
-	for(j=7;j+1;j--){
-		plain[j]=(uint8_t)(sz>>(j<<3)&0xff);
+	for(ó=0x7fffffffffffffffLL,ò=0,ã=ä-1;ã+1;ã--){
+		ô=(â[ä].à-â[ã].à)*(â[ä].à-â[ã].à)+(â[ä].á-â[ã].á)*(â[ä].á-â[ã].á);
+		if(ô<ó)ó=ô, ò=ã;
 	}
-
-	fread(plain, 1, sz-16, fin);
-	for(i=0;i<sz-8;i++){
-		for(j=7;j+1;j--){
-			enc[i+j]=plain[i+j]^(uint8_t)(key>>(j<<3)&0xff);
-		}
-	}
-
-	strcat(path, ".lock");
-	fout=fopen(path, "wb");
-	fwrite(enc, sizeof(uint8_t), sz-8, fout);
-	
-	free(plain);
-	free(enc);
+	printf("%lld %lld",â[ò].à,â[ò].á);
 }

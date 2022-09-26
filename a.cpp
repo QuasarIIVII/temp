@@ -1,7 +1,4 @@
-//Begin     : 2021.01.12 20:14:23
-//Compelete : 2021.01.19 19:17:01
-//2169
-#include<iostream>
+#include<stdio.h>
 
 using namespace std;
 int in[1000002];
@@ -39,14 +36,13 @@ int calc(int p,char d){
 	return dt[p][d+1];
 }
 int main(){
-	ios::sync_with_stdio(false);
 	int i,k;
 	
-	cin>>h>>w;
+	scanf("%d%d",&h,&w);
 	n=h*w;
-	for(i=0;i<n;i++)cin>>(int&)in[i];
+	for(i=0;i<n;i++)scanf("%d",&in[i]);
 	dt[n-1][0]=dt[n-1][1]=dt[n-1][2]=in[n-1];
 	cSet(n-1,0);cSet(n-1,1);cSet(n-1,2);
-	cout<<calc(0,1)<<endl;
+	printf("%d",calc(0,1));
 	return 0;
 }

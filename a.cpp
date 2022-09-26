@@ -1,18 +1,52 @@
-#include<stdint.h>
-#include<stdio.h>
-#include<stdlib.h>
-#include<memory.h>
-#include<string.h>
-int main(){
-	int64_t ä,ã,ó,ò,ô;
-	scanf("%lld",&ä);
-	struct{int64_t à, á;} â[ä+1];
-	for(ã=ä-1;ã+1;ã--)scanf("%lld%lld",&â[ã].à, &â[ã].á);
-	scanf("%lld%lld",&â[ä].à,&â[ä].á);
+//Begin     : 2021.01.12 20:14:23
+//Compelete : 2021.01.19 19:17:01
+//2169
+#include<iostream>
+
+using namespace std;
+int in[1000002];
+int dt[1000002][3];
+unsigned int C[31251][3];
+#define cSet(p,d) (C[(p)>>5][d]|=1<<((p)&0x1f))
+#define cGet(p,d) ((C[(p)>>5][d]>>((p)&0x1f))&1)
+
+int h,w,n;
+int calc(int p,char d){
+	if(cGet(p,d+1))return dt[p][d+1];
 	
-	for(ó=0x7fffffffffffffffLL,ò=0,ã=ä-1;ã+1;ã--){
-		ô=(â[ä].à-â[ã].à)*(â[ä].à-â[ã].à)+(â[ä].á-â[ã].á)*(â[ä].á-â[ã].á);
-		if(ô<ó)ó=ô, ò=ã;
+	int t=p%w, a,b,c;
+	if(d){
+		b= p+w<n ? calc(p+w,0) : 0x80000000;
+		if(d==1) a= t+1!=w ? calc(p+1,1) : 0x80000000;
+		else a= t ? calc(p-1,-1) : 0x80000000;
+		
+		dt[p][d+1]=(a>b?a:b);
+		if(dt[p][d+1]!=0x80000000){
+			dt[p][d+1]+=in[p];
+			cSet(p,d+1);
+		}
+	}else{
+		c= p+w<n ? calc(p+w,0) : 0x80000000;
+		a= t+1!=w ? calc(p+1,1) : 0x80000000;
+		b= t ? calc(p-1,-1) : 0x80000000;
+		
+		dt[p][d+1]=(a>b? (a>c?a:c) : (b>c?b:c));
+		if(dt[p][d+1]!=0x80000000){
+			dt[p][d+1]+=in[p];
+			cSet(p,d+1);
+		}
 	}
-	printf("%lld %lld",â[ò].à,â[ò].á);
+	return dt[p][d+1];
+}
+int main(){
+	ios::sync_with_stdio(false);
+	int i,k;
+	
+	cin>>h>>w;
+	n=h*w;
+	for(i=0;i<n;i++)cin>>(int&)in[i];
+	dt[n-1][0]=dt[n-1][1]=dt[n-1][2]=in[n-1];
+	cSet(n-1,0);cSet(n-1,1);cSet(n-1,2);
+	cout<<calc(0,1)<<endl;
+	return 0;
 }

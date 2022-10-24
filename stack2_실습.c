@@ -10,29 +10,44 @@ typedef struct {
 } StackType;
 
 
-void init_stack()
+void init_stack(StackType *s)
 {
-	//
+	s->top = -1;
 }
 
 
-int is_empty()
+int is_empty(StackType *s)
 {
-	//
+	if(s->top == -1){
+		return 1;
+	}
+	else{
+		return 0;
+	}
 }
 
-int is_full()
+int is_full(StackType *s)
 {
-	//
+	if(s->top == (MAX_STACK_SIZE-1)){
+		return 1;
+	}
+	else{
+		return 0;
+	}
 }
 
-void push()
+void push(StackType *s,element value)
 {
 	if (is_full(s)) {
+		
 		printf("스택 포화 에러\n");
 		return;
 	}
-	//else
+	else{
+		s->data[++(s->top)] = value;
+	}
+	
+	
 }
 
 element pop(StackType *s)
@@ -41,7 +56,10 @@ element pop(StackType *s)
 		printf("스택 공백 에러\n");
 		exit(1);
 	}
-	//else
+	else{
+		return s->data[(s->top)--];
+	}
+	
 }
 
 element peek(StackType *s)

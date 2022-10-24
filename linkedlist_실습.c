@@ -20,9 +20,9 @@ ListNode* insert_first(ListNode *head, int value)
 ListNode* insert(ListNode *head, ListNode *pre, element value)
 {
 	ListNode *p = (ListNode *)malloc(sizeof(ListNode));	
-	//		
-	//		
-	//			
+	p->link=pre->link;
+	p->data=value;
+	pre->link=p;
 	return head;			
 }
 
@@ -39,8 +39,8 @@ ListNode* erase_first(ListNode *head)
 ListNode* erase(ListNode *head, ListNode *pre)
 {
 	ListNode *removed;
-	//
-	//	
+	removed=pre->link;
+	pre->link=removed->link;
 	free(removed);			
 	return head;			
 }

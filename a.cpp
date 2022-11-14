@@ -24,36 +24,17 @@ int64_t randl(){
 	rand()*RAND_MAX*RAND_MAX*RAND_MAX+
 	rand()*RAND_MAX*RAND_MAX*RAND_MAX*RAND_MAX;
 }
-
-void q(int64_t*a,int64_t n){
-	int64_t i=0,j=n-1,p=a[i+j>>1], t;
-	while(i<=j){
-		while(a[i++]<p); while(p<a[j--]);
-		if(i<=j)t=a[i],a[i]=a[j],a[j]=t, i++,j--;
-	}
-	if(0<j)		q(a,j-1);
-	if(i<n-1)	q(a+i,n-i+1);
-}
-
-void _q(int64_t*a,int64_t l, int64_t r){
-	int64_t i=l, j=r, p=a[l+r>>1], t;
-	while(i<=j){
-		while(a[i++]<p);
-		while(a[j--]>p);
-		if(i<=j){t=a[i],a[i]=a[j],a[j]=t; i++,j--;}
-	}
-
-	if(l<j)_q(a,l,j);
-	if(i<r)_q(a,i,r);
-}
-
+void merge(){}
 int main(){
-	//int64_t i,n=randl()&0xFFFF;
-	int64_t i,n=randl()&0xF;
-	int64_t a[n];
-	for(i=n-1;i+1;i--)a[i]=randl()&0xFF;
-	for(i=0;i<n;i++)printf("%lld ",a[i]);puts("");
-	q(a,n);
-	_q(a,0,n-1);
-	for(i=0;i<n;i++)printf("%lld ",a[i]);
+//	int64_t a[10]={20,52,21,5,15,4,6,37,35,17};
+	int64_t a[10]={0,1,2,3,4,5,6,7,8,9};
+	int64_t s=0,e=10, m, key=0;
+
+	for(;e-s>0;){
+		if(a[m=s+e>>1]==key)break;
+		if(a[m]>key)e=m;
+		else s=m+1;
+	}
+	if(e-s<1)puts("Failed");
+	else printf("%lld",m);
 }

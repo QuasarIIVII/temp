@@ -24,17 +24,24 @@ int64_t randl(){
 	rand()*RAND_MAX*RAND_MAX*RAND_MAX+
 	rand()*RAND_MAX*RAND_MAX*RAND_MAX*RAND_MAX;
 }
-void merge(){}
-int main(){
-//	int64_t a[10]={20,52,21,5,15,4,6,37,35,17};
-	int64_t a[10]={0,1,2,3,4,5,6,7,8,9};
-	int64_t s=0,e=10, m, key=0;
 
-	for(;e-s>0;){
+int f(int*a, int n, int k){
+	__asm__("#Test");
+	__asm__("\n\
+	");
+}
+
+int main(){
+	int64_t a[10]={0,1,2,3,4,5,6,7,8,9};
+	int64_t s=0,e=10, m, key=0, c=0;
+
+	scanf("%lld",&key);
+
+	for(;e-s>0;c++){
 		if(a[m=s+e>>1]==key)break;
 		if(a[m]>key)e=m;
 		else s=m+1;
 	}
 	if(e-s<1)puts("Failed");
-	else printf("%lld",m);
+	else printf("%lld %lld",m,c+1);
 }
